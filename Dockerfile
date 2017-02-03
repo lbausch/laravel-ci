@@ -5,7 +5,7 @@ LABEL maintainer "Lorenz Bausch <info@lorenzbausch.de>"
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Install basic packages
-RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-certificates wget curl git unzip supervisor mysql-client openssh-client
+RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-certificates wget curl build-essential git unzip supervisor mysql-client openssh-client
 
 # Add key
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
