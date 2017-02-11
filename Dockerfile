@@ -14,7 +14,7 @@ RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
 
 # Install PHP
-RUN apt-get update && apt-get install -y php7.1-cli php7.1-curl php7.1-mysql php7.1-mcrypt php7.1-mbstring php7.1-dom php7.1-xdebug php7.1-tidy
+RUN apt-get update && apt-get install -y php7.1-cli php7.1-curl php7.1-mysql php7.1-mcrypt php7.1-mbstring php7.1-dom php7.1-xdebug php7.1-tidy php7.1-gd
 RUN php -m
 
 # Install Node.js
