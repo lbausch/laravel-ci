@@ -36,7 +36,6 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     composer --version
 
 # Support Laravel Dusk
-# https://github.com/laravel/dusk/issues/71#issuecomment-276208621
 RUN apt-get update && \
     apt-get -y install libxpm4 libxrender1 libgtk2.0-0 libnss3 libgconf-2-4 && \
     apt-get -y install chromium && \
