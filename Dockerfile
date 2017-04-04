@@ -37,6 +37,9 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 
 # Support Laravel Dusk
 # https://github.com/laravel/dusk/issues/71#issuecomment-276208621
-RUN cd /root && wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    dpkg -i google-chrome-stable_current_amd64.deb ; apt-get update && apt-get install -f -y && \
-    apt-get install -y xvfb
+RUN apt-get update && \
+    apt-get -y install libxpm4 libxrender1 libgtk2.0-0 libnss3 libgconf-2-4 && \
+    apt-get -y install chromium && \
+    apt-get -y install xvfb gtk2-engines-pixbuf && \
+    apt-get -y install xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable && \
+    apt-get -y install imagemagick x11-apps
