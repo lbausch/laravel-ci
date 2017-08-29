@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 
 LABEL maintainer "Lorenz Bausch <info@lorenzbausch.de>"
 
