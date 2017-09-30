@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y php7.1-fpm php7.1-bcmath php7.1-cli php
     php -m
 
 # Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - && apt-get install -y nodejs && \
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && apt-get install -y nodejs && \
     nodejs --version
 
 # Install Yarn
