@@ -8,7 +8,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN adduser --disabled-password --gecos "" laravel
 
 # Install basic packages
-RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-certificates wget curl build-essential git unzip supervisor mysql-client openssh-client vim libpng12-0
+RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-certificates wget curl build-essential git unzip supervisor mysql-client openssh-client vim
 
 # Add key and repository
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg && \
