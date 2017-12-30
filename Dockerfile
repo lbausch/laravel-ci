@@ -8,7 +8,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN adduser --disabled-password --gecos "" laravel
 
 # Install basic packages
-RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-certificates wget curl build-essential git unzip supervisor mysql-client openssh-client vim
+RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-certificates wget curl build-essential git unzip supervisor mysql-client openssh-client vim poppler-utils
 
 # Install libpng12 which is required by mozjpeg/cjpeg
 RUN wget -q -O /tmp/libpng12.deb http://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb && \
