@@ -15,11 +15,6 @@ RUN wget -q -O /tmp/libpng12.deb http://mirrors.kernel.org/ubuntu/pool/main/libp
     dpkg -i /tmp/libpng12.deb && \
     rm /tmp/libpng12.deb
 
-# Install libpng12 which is required by mozjpeg/cjpeg
-RUN wget -q -O /tmp/libpng12.deb http://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb && \
-    dpkg -i /tmp/libpng12.deb && \
-    rm /tmp/libpng12.deb
-
 # Add key and repository
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg && \
     echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
