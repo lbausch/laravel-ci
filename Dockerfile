@@ -25,7 +25,8 @@ RUN apt-get update && apt-get install -y php7.2-fpm php7.2-bcmath php7.2-cli php
 
 # Install Node.js
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && apt-get install -y nodejs && \
-    nodejs --version
+    nodejs --version && \
+    npm -v
 
 # Install Yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
