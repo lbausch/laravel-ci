@@ -21,7 +21,8 @@ RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 
 # Install PHP
 RUN apt-get update && apt-get install -y php7.3-fpm php7.3-bcmath php7.3-cli php7.3-curl php7.3-mysql php7.3-mbstring php7.3-dom php7.3-xdebug php7.3-tidy php7.3-gd php7.3-zip php7.3-imap php7.3-soap php7.3-sqlite && \
-    php -m
+    php -m && \
+    php -v
 
 # Install Node.js
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && apt-get install -y nodejs && \
