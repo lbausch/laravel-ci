@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y php7.3-fpm php7.3-bcmath php7.3-cli php
     php -m
 
 # Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && apt-get install -y nodejs && \
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && apt-get install -y nodejs && \
     nodejs --version && \
     npm -v
 
