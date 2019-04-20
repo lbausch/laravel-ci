@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     ca-certificates \
     curl \
     git \
+    libgtk-3-0 \
     lsb-release \
     mysql-client \
     openssh-client \
