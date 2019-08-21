@@ -1,0 +1,38 @@
+image: lbausch/laravel-ci
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - composer
+        script:
+          # Composer
+          - composer install
+          #Writable Folders
+          - chmod -R 777 ./storage
+          - chown -R www-data:www-data ./storage
+          - chmod -R 0755 vendor/laravel/dusk/bin/
+          # App Configuration
+          - ln -f -s .env.bitbucket .env
+          - php artisan key:generate
+          - php artisan storage:link
+          - php artisan migrate
+          # Serve Application
+          - php artisan serve &
+          - sleep 5
+          #PHPUnit
+          - ./vendor/bin/phpunit
+          #Laravel Dusk
+          - php artisan dusk
+        services:
+          - mysql
+
+definitions:
+  services:
+    mysql:
+      image: mysql:5.7
+      environment:
+        MYSQL_DATABASE: 'testing'
+        MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+        MYSQL_USER: 'bitbucket'
+        MYSQL_PASSWORD: 'secret'
