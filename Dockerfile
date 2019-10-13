@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     git \
     libgtk-3-0 \
     lsb-release \
-    mysql-client \
+    default-mysql-client \
     openssh-client \
     poppler-utils \
     supervisor \
