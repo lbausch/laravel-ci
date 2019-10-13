@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:buster
 
 LABEL maintainer "Lorenz Bausch <info@lorenzbausch.de>"
 
