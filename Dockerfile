@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
     default-mysql-client \
     openssh-client \
     poppler-utils \
+    rsync \
     supervisor \
     unzip \
     wget \
