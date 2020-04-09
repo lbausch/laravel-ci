@@ -3,7 +3,7 @@
 Based on Debian 10 (buster)
 
 ## Features
-+ PHP 7.3
++ PHP 7.4
 + Composer
 + Node.js 12
 + npm 6.13
