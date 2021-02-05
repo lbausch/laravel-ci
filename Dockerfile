@@ -36,6 +36,7 @@ RUN apt-get update && apt-get install -y php7.4-fpm php7.4-bcmath php7.4-cli php
 
 # Install Node.js
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get install -y nodejs && \
+    npm install --global npm && \
     nodejs --version && \
     npm -v
 
