@@ -8,4 +8,4 @@ Based on Debian 10 (buster)
 + Node.js 12
 + npm 7
 + Yarn
-+ Supports Laravel Dusk (Chromium 76)
++ Supports Laravel Dusk (Chromium 87)
