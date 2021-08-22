@@ -52,6 +52,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.DOCKER_IMAGE }}:${{steps.vars.outputs.branch_name}}
+          tags: ${{ env.DOCKER_IMAGE }}:latest
           labels: ${{ steps.meta.outputs.labels }}
         if: ${{ steps.vars.outputs.branch_name == 'master' }}
