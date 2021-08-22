@@ -6,6 +6,7 @@ on:
     branches:
       - develop
       - master
+      - php56
       - php74
       - php80
   schedule:

@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 LABEL maintainer "Lorenz Bausch <info@lorenzbausch.de>"
 
@@ -38,14 +38,14 @@ RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
     echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
 
 # Install PHP
-RUN apt-get update && apt-get install -y php8.0-fpm php8.0-bcmath php8.0-cli php8.0-curl php8.0-mysql php8.0-mbstring php8.0-dom php8.0-xdebug php8.0-tidy php8.0-gd php8.0-zip php8.0-imap php8.0-soap php8.0-sqlite php-redis && \
+RUN apt-get update && apt-get install -y php5.6-fpm php5.6-bcmath php5.6-cli php5.6-curl php5.6-mysql php5.6-mbstring php5.6-dom php5.6-xdebug php5.6-tidy php5.6-gd php5.6-zip php5.6-imap php5.6-soap php5.6-sqlite php-redis && \
     php -m && \
     php -v
 
 # Install Node.js
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt-get install -y nodejs && \
     npm install -g npm@7 && \
-    nodejs --version && \
+    node --version && \
     npm -v
 
 # Install Composer
