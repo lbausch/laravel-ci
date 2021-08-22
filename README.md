@@ -1,3 +1,5 @@
+![latest](https://github.com/lbausch/laravel-ci/actions/workflows/docker-registry.yml/badge.svg)
+
 # laravel-ci: A Docker image for Continuous Integration
 
 Based on Debian 10 (buster)
