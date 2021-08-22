@@ -11,6 +11,9 @@ on:
   schedule:
     - cron: '0 7 * * 1'
 
+env:
+  DOCKER_IMAGE: 'lbausch/laravel-ci'
+
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
@@ -33,14 +36,14 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: lbausch/laravel-ci
+          images: ${{ env.DOCKER_IMAGE }}
 
       - name: Build and push Docker image (branch)
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
           push: true
-          tags: lbausch/laravel-ci:${{steps.vars.outputs.branch_name}}
+          tags: ${{ env.DOCKER_IMAGE }}:${{steps.vars.outputs.branch_name}}
           labels: ${{ steps.meta.outputs.labels }}
         if: ${{ steps.vars.outputs.branch_name != 'master' }}
 
@@ -49,6 +52,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: lbausch/laravel-ci:${{steps.vars.outputs.branch_name}}
+          tags: ${{ env.DOCKER_IMAGE }}:${{steps.vars.outputs.branch_name}}
           labels: ${{ steps.meta.outputs.labels }}
         if: ${{ steps.vars.outputs.branch_name == 'master' }}
