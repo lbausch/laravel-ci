@@ -7,4 +7,4 @@ Based on Debian 10 (buster)
 + Composer 2
 + Node.js 12
 + npm 6.14
-+ Supports [Laravel Dusk](https://laravel.com/docs/master/dusk) (Chromium 83)
++ Supports [Laravel Dusk](https://laravel.com/docs/master/dusk) (Chromium 90)
