@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 
 LABEL maintainer "Lorenz Bausch <info@lorenzbausch.de>"
 
@@ -44,8 +44,8 @@ RUN apt-get update && apt-get install -y php8.0-fpm php8.0-bcmath php8.0-cli php
 
 # Install Node.js
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt-get install -y nodejs && \
-    npm install -g npm@7 && \
-    nodejs --version && \
+    npm install --global npm@7 && \
+    node --version && \
     npm -v
 
 # Install Composer

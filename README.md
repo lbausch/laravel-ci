@@ -2,7 +2,7 @@
 
 # laravel-ci: A Docker image for Continuous Integration
 
-Based on Debian 10 (buster)
+Based on Debian 11 (bullseye)
 
 ## Features
 + PHP 8.0
