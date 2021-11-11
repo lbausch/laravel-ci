@@ -8,6 +8,7 @@ on:
       - master
       - php74
       - php80
+      - php81
   schedule:
     - cron: '0 7 * * 1'
 
