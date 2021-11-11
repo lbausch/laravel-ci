@@ -7,6 +7,6 @@ Based on Debian 11 (bullseye)
 ## Features
 + PHP 8.0
 + Composer 2
-+ Node.js 14
++ Node.js 16
 + npm 7
 + Supports [Laravel Dusk](https://laravel.com/docs/master/dusk) (Chromium 90)
