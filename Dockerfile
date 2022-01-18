@@ -54,6 +54,7 @@ RUN apt-get update \
     php8.1-fpm \
     php8.1-gd \
     php8.1-imap \
+    php8.1-intl \
     php8.1-ldap \
     php8.1-mbstring \
     php8.1-mysql \
