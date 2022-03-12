@@ -47,11 +47,8 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     yarn --version
 
 # Install Composer
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
-    php composer-setup.php && \
-    mv composer.phar /usr/local/bin/composer && \
-    php -r "unlink('composer-setup.php');" && \
-    composer --version
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+RUN composer self-update && composer --version
 
 # Support Laravel Dusk
 RUN apt-get update && \
@@ -60,3 +57,4 @@ RUN apt-get update && \
     apt-get -y install xvfb gtk2-engines-pixbuf && \
     apt-get -y install xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable && \
     apt-get -y install imagemagick x11-apps
+
