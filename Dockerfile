@@ -68,8 +68,5 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && apt-get install -
     npm -v
 
 # Install Composer
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
-    php composer-setup.php && \
-    mv composer.phar /usr/local/bin/composer && \
-    php -r "unlink('composer-setup.php');" && \
-    composer --version
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+RUN composer self-update && composer --version
