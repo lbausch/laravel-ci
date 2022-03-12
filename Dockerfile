@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-LABEL maintainer "Lorenz Bausch <info@lorenzbausch.de>"
+LABEL org.opencontainers.image.authors="info@lorenzbausch.de"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
