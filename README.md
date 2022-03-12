@@ -9,4 +9,4 @@ Based on Debian 11 (bullseye)
 + Composer 2
 + Node.js 16
 + npm 8
-+ Supports [Laravel Dusk](https://laravel.com/docs/master/dusk) (Chromium 97)
++ Supports [Laravel Dusk](https://laravel.com/docs/master/dusk) (Chromium 99)
