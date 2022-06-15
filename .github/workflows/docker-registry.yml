@@ -10,6 +10,7 @@ on:
       - php80
   schedule:
     - cron: '0 7 * * 1'
+  workflow_dispatch: {}
 
 env:
   DOCKER_IMAGE: 'lbausch/laravel-ci'
