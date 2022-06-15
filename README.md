@@ -1,6 +1,6 @@
 ![latest](https://github.com/lbausch/laravel-ci/actions/workflows/docker-registry.yml/badge.svg)
 
-# laravel-ci: A Docker image for Continuous Integration
+# lbausch/laravel-ci: A Docker Image for Continuous Integration
 
 Based on Debian 11 (bullseye)
 
@@ -9,4 +9,4 @@ Based on Debian 11 (bullseye)
 + Composer 2
 + Node.js 16
 + npm 8
-+ Supports [Laravel Dusk](https://laravel.com/docs/master/dusk) (Chromium 90)
++ Supports [Laravel Dusk](https://laravel.com/docs/master/dusk) (Chromium 99)
