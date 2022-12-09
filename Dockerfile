@@ -61,7 +61,7 @@ RUN apt-get update \
     php8.2-soap \
     php8.2-sqlite \
     php8.2-tidy \
-    # php8.2-xdebug \
+    php8.2-xdebug \
     php8.2-zip \
     && php -m \
     && php -v
