@@ -62,10 +62,11 @@ RUN apt-get update \
     && php -v
 
 # Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && apt-get install -y nodejs && \
-    npm install --global npm@8 && \
-    node --version && \
-    npm -v
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install --global npm@8 \
+    && node --version \
+    && npm -v
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
