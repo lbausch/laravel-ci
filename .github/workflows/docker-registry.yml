@@ -9,6 +9,7 @@ on:
       - php74
       - php80
       - php81
+      - php82
   schedule:
     - cron: '0 7 * * 1'
   workflow_dispatch: {}
