@@ -5,7 +5,7 @@
 Based on Debian 11 (bullseye)
 
 ## Features
-+ PHP 8.1
++ PHP 8.2
 + Composer 2
 + Node.js 16
 + npm 8
