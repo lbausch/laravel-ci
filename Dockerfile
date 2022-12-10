@@ -67,7 +67,7 @@ RUN apt-get update \
     && php -v
 
 # Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs \
     && npm install --global npm@8 \
     && node --version \
