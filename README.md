@@ -7,7 +7,7 @@ Based on Debian 10 (buster)
 ## Features
 + PHP 7.4
 + Composer
-+ Node.js 16
++ Node.js 18
 + npm 8
 + Yarn
 + Supports [Laravel Dusk](https://laravel.com/docs/master/dusk) (Chromium 90)

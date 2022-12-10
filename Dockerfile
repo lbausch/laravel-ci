@@ -35,10 +35,11 @@ RUN apt-get update && apt-get install -y php7.4-fpm php7.4-bcmath php7.4-cli php
     php -v
 
 # Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && apt-get install -y nodejs && \
-    npm install --global npm@8 && \
-    node --version && \
-    npm -v
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install --global npm@8 \
+    && node --version \
+    && npm -v
 
 # Install Yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
@@ -57,4 +58,3 @@ RUN apt-get update && \
     apt-get -y install xvfb gtk2-engines-pixbuf && \
     apt-get -y install xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable && \
     apt-get -y install imagemagick x11-apps
-
