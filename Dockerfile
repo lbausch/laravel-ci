@@ -63,6 +63,7 @@ RUN apt-get update \
     php8.2-tidy \
     php8.2-xdebug \
     php8.2-zip \
+    && update-alternatives --set php /usr/bin/php8.2 \
     && php -m \
     && php -v
 
