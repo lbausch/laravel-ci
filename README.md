@@ -2,7 +2,7 @@
 
 # lbausch/laravel-ci: A Docker Image for Continuous Integration
 
-Based on Debian 11 (bullseye)
+Based on Debian 12 (bookworm)
 
 ## Features
 + PHP 8.2
