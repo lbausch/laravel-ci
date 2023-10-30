@@ -1,8 +1,12 @@
 ![latest](https://github.com/lbausch/laravel-ci/actions/workflows/docker-registry.yml/badge.svg)
 
-# lbausch/laravel-ci: A Docker Image for Continuous Integration
+# lbausch/laravel-ci <!-- omit in toc -->
 
-Based on Debian 12 (bookworm)
+A Docker Image for Continuous Integration based on Debian 12 (bookworm).
+
+- [Features](#features)
+- [Usage](#usage)
+  - [GitLab CI/CD](#gitlab-cicd)
 
 ## Features
 + PHP 8.2
@@ -10,3 +14,9 @@ Based on Debian 12 (bookworm)
 + Node.js 18
 + npm 8
 + Supports [Laravel Dusk](https://laravel.com/docs/master/dusk) (Chromium)
+
+
+## Usage
+
+### GitLab CI/CD
+See [.gitlab-ci.yml](./docs/.gitlab-ci.yml) in the `docs/` directory for a reference configuration.

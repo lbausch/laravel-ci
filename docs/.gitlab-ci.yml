@@ -1,0 +1,28 @@
+---
+stages:
+  - test
+
+dusk:
+  stage: test
+  image: lbausch/laravel-ci:php82
+  before_script:
+    # Install dependencies
+    - composer install --ansi --no-interaction --no-progress
+    - npm ci
+
+    # Install matching ChromeDriver binary
+    - php artisan dusk:chrome-driver --detect
+
+    # Start a display server
+    - Xvfb :0 -screen 0 1366x768x24 &
+
+    # Start Laravel application on Port 80
+    - php artisan serve --port=80 &
+  script:
+    # Run Laravel Dusk
+    - php artisan dusk
+  artifacts:
+    paths:
+      # Keep console output and screenshots
+      - tests/Browser/console
+      - tests/Browser/screenshots
