@@ -11,7 +11,7 @@ A Docker Image for Continuous Integration based on Debian 12 (bookworm).
 ## Features
 + PHP 8.2
 + Composer 2
-+ Node.js 18
++ Node.js 20
 + npm 8
 + Supports [Laravel Dusk](https://laravel.com/docs/master/dusk) (Chromium)
 
