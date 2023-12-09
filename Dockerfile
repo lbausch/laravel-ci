@@ -63,7 +63,7 @@ RUN apt-get update \
     php8.3-soap \
     php8.3-sqlite \
     php8.3-tidy \
-    # php8.3-xdebug \
+    php8.3-xdebug \
     php8.3-zip \
     && update-alternatives --set php /usr/bin/php8.3 \
     && php -m \
