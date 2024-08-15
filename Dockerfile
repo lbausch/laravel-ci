@@ -52,9 +52,10 @@ COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 RUN composer self-update && composer --version
 
 # Support Laravel Dusk
-RUN apt-get update && \
-    apt-get -y install libxpm4 libxrender1 libgtk2.0-0 libnss3 libgconf-2-4 && \
-    apt-get -y install chromium && \
-    apt-get -y install xvfb gtk2-engines-pixbuf && \
-    apt-get -y install xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable && \
-    apt-get -y install imagemagick x11-apps
+RUN apt-get update \
+    && apt-get -y install libxpm4 libxrender1 libgtk2.0-0 libnss3 libgconf-2-4 \
+    && apt-get -y install chromium \
+    && apt-get -y install xvfb gtk2-engines-pixbuf \
+    && apt-get -y install xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable \
+    && apt-get -y install imagemagick x11-apps \
+    && chromium --version
