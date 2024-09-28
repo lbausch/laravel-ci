@@ -9,7 +9,7 @@ A Docker Image for Continuous Integration based on Debian 12 (bookworm).
   - [GitLab CI/CD](#gitlab-cicd)
 
 ## Features
-+ PHP 8.2
++ PHP 8.3
 + Composer 2
 + Node.js 20
 + npm 8
