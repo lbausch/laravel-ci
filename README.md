@@ -7,6 +7,12 @@ Based on Debian 11 (bullseye)
 ## Features
 + PHP 8.1
 + Composer 2
-+ Node.js 18
-+ npm 8
-+ Supports [Laravel Dusk](https://laravel.com/docs/master/dusk) (Chromium 99)
++ Node.js 22
++ npm 10
++ Supports [Laravel Dusk](https://laravel.com/docs/master/dusk) (Chromium)
+
+
+## Usage
+
+### GitLab CI/CD
+See [.gitlab-ci.yml](./docs/.gitlab-ci.yml) in the `docs/` directory for a reference configuration.
