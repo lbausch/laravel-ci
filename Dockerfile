@@ -4,7 +4,7 @@ LABEL org.opencontainers.image.authors="info@lorenzbausch.de"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-ARG NODE_MAJOR=22
+ARG NODE_MAJOR=24
 
 # Do not install recommended or suggested packages
 RUN echo 'APT::Get::Install-Recommends "false";' >> /etc/apt/apt.conf \
