@@ -5,54 +5,98 @@ on:
   push:
     branches:
       - master
-      - php74
-      - php80
-      - php81
-      - php82
-      - php83
-      - php84
-      - php85
+  pull_request: {}
   schedule:
     - cron: '0 7 * * 1'
   workflow_dispatch: {}
 
+permissions:
+  contents: read
+
 env:
   DOCKER_IMAGE: 'lbausch/laravel-ci'
+  # Tags without Debian suffix (e.g. php85) point to images built on this Debian release
+  LATEST_DEBIAN: 'trixie'
+  # The tag latest points to this PHP version built on LATEST_DEBIAN
+  LATEST_PHP: '8.5'
 
 jobs:
   push_to_registry:
-    name: Push Docker image to Docker Hub
+    name: PHP ${{ matrix.php }} (${{ matrix.debian }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
+        debian: ['bookworm', 'trixie']
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
+
+      - name: Determine tags
+        id: tags
+        env:
+          PHP_VERSION: ${{ matrix.php }}
+          DEBIAN: ${{ matrix.debian }}
+        run: |
+          version="php${PHP_VERSION//./}"
+          image="${DOCKER_IMAGE}:${version}-${DEBIAN}"
+          tags="${image}"
+          if [ "${DEBIAN}" = "${LATEST_DEBIAN}" ]; then
+            tags="${tags},${DOCKER_IMAGE}:${version}"
+            if [ "${PHP_VERSION}" = "${LATEST_PHP}" ]; then
+              tags="${tags},${DOCKER_IMAGE}:latest"
+            fi
+          fi
+          echo "image=${image}" >> "${GITHUB_OUTPUT}"
+          echo "tags=${tags}" >> "${GITHUB_OUTPUT}"
+
+      - name: Extract metadata (labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v6
+        with:
+          images: ${{ env.DOCKER_IMAGE }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          load: true
+          tags: ${{ steps.tags.outputs.image }}
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            DEBIAN_VERSION=${{ matrix.debian }}
+            PHP_VERSION=${{ matrix.php }}
+
+      - name: Test Docker image
+        env:
+          IMAGE: ${{ steps.tags.outputs.image }}
+          PHP_VERSION: ${{ matrix.php }}
+          DEBIAN: ${{ matrix.debian }}
+        run: |
+          docker run --rm "${IMAGE}" sh -c '. /etc/os-release && echo "${VERSION_CODENAME}"' | grep -qx "${DEBIAN}"
+          docker run --rm "${IMAGE}" php -r 'echo PHP_MAJOR_VERSION, ".", PHP_MINOR_VERSION;' | grep -qx "${PHP_VERSION}"
+          docker run --rm "${IMAGE}" php -m | grep -qix redis
+          docker run --rm "${IMAGE}" sh -c 'php -v && composer --version && node --version && npm --version && yarn --version && chromium --version'
 
       - name: Log in to Docker Hub
-        uses: docker/login-action@v2
+        if: github.ref == 'refs/heads/master'
+        uses: docker/login-action@v4
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: ${{ env.DOCKER_IMAGE }}
-
-      - name: Build and push Docker image (branch)
-        uses: docker/build-push-action@v4
+      - name: Push Docker image
+        if: github.ref == 'refs/heads/master'
+        uses: docker/build-push-action@v7
         with:
           context: .
           push: true
-          tags: ${{ env.DOCKER_IMAGE }}:${{ github.ref_name }}
+          tags: ${{ steps.tags.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-        if: github.ref_name != 'master'
-
-      - name: Build and push Docker image (latest)
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: true
-          tags: ${{ env.DOCKER_IMAGE }}:latest
-          labels: ${{ steps.meta.outputs.labels }}
-        if: github.ref_name == 'master'
+          build-args: |
+            DEBIAN_VERSION=${{ matrix.debian }}
+            PHP_VERSION=${{ matrix.php }}
