@@ -48,7 +48,6 @@ RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 # Install PHP
 RUN apt-get update \
     && apt-get install -y \
-    php-redis \
     php8.5-bcmath \
     php8.5-cli \
     php8.5-curl \
@@ -60,6 +59,7 @@ RUN apt-get update \
     php8.5-ldap \
     php8.5-mbstring \
     php8.5-mysql \
+    php8.5-redis \
     php8.5-soap \
     php8.5-sqlite \
     php8.5-tidy \

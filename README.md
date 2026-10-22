@@ -2,7 +2,7 @@
 
 # lbausch/laravel-ci <!-- omit in toc -->
 
-A Docker Image for Continuous Integration based on Debian 12 (bookworm).
+A Docker Image for Continuous Integration based on Debian 13 (trixie).
 
 - [Features](#features)
 - [Usage](#usage)
@@ -19,4 +19,4 @@ A Docker Image for Continuous Integration based on Debian 12 (bookworm).
 ## Usage
 
 ### GitLab CI/CD
-See [.gitlab-ci.yml](./docs/.gitlab-ci.yml) in the `docs/` directory for a reference configuration.
+See [.gitlab-ci.yml](https://github.com/lbausch/laravel-ci/blob/master/docs/.gitlab-ci.yml) in the `docs/` directory of the `master` branch for a reference configuration.

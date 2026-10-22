@@ -4,7 +4,6 @@ name: Publish Docker image
 on:
   push:
     branches:
-      - develop
       - master
       - php74
       - php80
