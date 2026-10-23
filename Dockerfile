@@ -22,6 +22,7 @@ RUN apt-get update \
     curl \
     git \
     gnupg \
+    less \
     libgtk-3-0 \
     lsb-release \
     default-mysql-client \
@@ -38,9 +39,9 @@ RUN if [ "$(lsb_release -sc)" = "bookworm" ]; then gtk2="libgtk2.0-0 libgconf-2-
     && apt-get update \
     && apt-get -y install libxpm4 libxrender1 $gtk2 libnss3 \
     && apt-get -y install chromium \
-    && apt-get -y install xvfb gtk2-engines-pixbuf \
-    && apt-get -y install xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable \
-    && apt-get -y install imagemagick x11-apps \
+    && apt-get -y install xvfb xauth gtk2-engines-pixbuf \
+    && apt-get -y install fonts-liberation xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable \
+    && apt-get -y install imagemagick ghostscript x11-apps \
     && chromium --version
 
 ARG NODE_MAJOR=24

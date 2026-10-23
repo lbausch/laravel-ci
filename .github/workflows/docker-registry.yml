@@ -82,6 +82,7 @@ jobs:
           docker run --rm "${IMAGE}" php -m | grep -qix redis
           docker run --rm "${IMAGE}" php -m | grep -qix imagick
           docker run --rm "${IMAGE}" sh -c 'php -v && composer --version && node --version && npm --version && yarn --version && chromium --version'
+          docker run --rm "${IMAGE}" sh -c 'gs --version && less --version && fc-list | grep -q "Liberation Sans" && xvfb-run true'
 
       - name: Test Chromium (headless screenshot)
         env:
