@@ -10,7 +10,7 @@ A Docker Image for Continuous Integration based on Debian 13 (trixie) or Debian 
   - [GitLab CI/CD](#gitlab-cicd)
 
 ## Features
-+ PHP 5.6 to 8.5 with the extensions bcmath, curl, dom, gd, gmp, imap, intl, ldap, mbstring, mysql, redis, soap, sqlite, tidy, xdebug and zip
++ PHP 5.6 to 8.5 with the extensions bcmath, curl, dom, gd, gmp, imagick, imap, intl, ldap, mbstring, mysql, redis, soap, sqlite, tidy, xdebug and zip
 + Composer 2 (2.2 LTS for PHP < 7.2.5)
 + Node.js 24
 + npm 10

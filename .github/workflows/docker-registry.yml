@@ -80,6 +80,7 @@ jobs:
           docker run --rm "${IMAGE}" sh -c '. /etc/os-release && echo "${VERSION_CODENAME}"' | grep -qx "${DEBIAN}"
           docker run --rm "${IMAGE}" php -r 'echo PHP_MAJOR_VERSION, ".", PHP_MINOR_VERSION;' | grep -qx "${PHP_VERSION}"
           docker run --rm "${IMAGE}" php -m | grep -qix redis
+          docker run --rm "${IMAGE}" php -m | grep -qix imagick
           docker run --rm "${IMAGE}" sh -c 'php -v && composer --version && node --version && npm --version && yarn --version && chromium --version'
 
       - name: Log in to Docker Hub

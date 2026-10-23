@@ -70,6 +70,7 @@ RUN apt-get update \
     php${PHP_VERSION}-fpm \
     php${PHP_VERSION}-gd \
     php${PHP_VERSION}-gmp \
+    php${PHP_VERSION}-imagick \
     php${PHP_VERSION}-imap \
     php${PHP_VERSION}-intl \
     php${PHP_VERSION}-ldap \
