@@ -1,6 +1,6 @@
 ARG DEBIAN_VERSION=trixie
 
-FROM debian:${DEBIAN_VERSION}
+FROM debian:${DEBIAN_VERSION}-slim
 
 LABEL org.opencontainers.image.authors="info@lorenzbausch.de"
 

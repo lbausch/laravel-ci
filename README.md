@@ -2,7 +2,7 @@
 
 # lbausch/laravel-ci <!-- omit in toc -->
 
-A Docker Image for Continuous Integration based on Debian 13 (trixie) or Debian 12 (bookworm).
+A Docker Image for Continuous Integration based on Debian 13 (trixie) or Debian 12 (bookworm), using the official slim base images (without man pages and documentation).
 
 - [Features](#features)
 - [Tags](#tags)
