@@ -7,8 +7,8 @@ LABEL org.opencontainers.image.authors="info@lorenzbausch.de"
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Do not install recommended or suggested packages
-RUN echo 'APT::Get::Install-Recommends "false";' >> /etc/apt/apt.conf \
-    && echo 'APT::Get::Install-Suggests "false";' >> /etc/apt/apt.conf
+RUN echo 'APT::Install-Recommends "false";' >> /etc/apt/apt.conf \
+    && echo 'APT::Install-Suggests "false";' >> /etc/apt/apt.conf
 
 # Create user 'laravel'
 RUN useradd -m -s /bin/bash -c '' laravel && passwd -d laravel
