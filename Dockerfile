@@ -32,7 +32,8 @@ RUN apt-get update \
     supervisor \
     unzip \
     wget \
-    vim
+    vim \
+    && rm -rf /var/lib/apt/lists/*
 
 # Support Laravel Dusk
 RUN apt-get update \
@@ -41,6 +42,7 @@ RUN apt-get update \
     && apt-get -y install xvfb xauth \
     && apt-get -y install fonts-liberation xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable \
     && apt-get -y install imagemagick ghostscript \
+    && rm -rf /var/lib/apt/lists/* \
     && chromium --version
 
 ARG NODE_MAJOR=24
@@ -52,7 +54,8 @@ RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg -
     && npm install --global npm@10 yarn \
     && node --version \
     && npm -v \
-    && yarn --version
+    && yarn --version \
+    && rm -rf /var/lib/apt/lists/* /root/.npm /tmp/*
 
 # Add key and repository
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
@@ -83,6 +86,7 @@ RUN apt-get update \
     php${PHP_VERSION}-xdebug \
     php${PHP_VERSION}-zip \
     && update-alternatives --set php /usr/bin/php${PHP_VERSION} \
+    && rm -rf /var/lib/apt/lists/* \
     && php -m \
     && php -v
 
