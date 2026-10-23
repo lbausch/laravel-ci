@@ -83,6 +83,17 @@ jobs:
           docker run --rm "${IMAGE}" php -m | grep -qix imagick
           docker run --rm "${IMAGE}" sh -c 'php -v && composer --version && node --version && npm --version && yarn --version && chromium --version'
 
+      - name: Test Chromium (headless screenshot)
+        env:
+          IMAGE: ${{ steps.tags.outputs.image }}
+        run: |
+          docker run --rm "${IMAGE}" sh -c '
+            set -e
+            timeout 60 chromium --headless --no-sandbox --disable-gpu --window-size=800,600 \
+              --screenshot=/tmp/screenshot.png "data:text/html,<h1>Laravel Dusk</h1>"
+            test "$(identify -format %wx%h /tmp/screenshot.png)" = 800x600
+          '
+
       - name: Log in to Docker Hub
         if: github.ref == 'refs/heads/master'
         uses: docker/login-action@v4
