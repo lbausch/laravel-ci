@@ -35,13 +35,12 @@ RUN apt-get update \
     vim
 
 # Support Laravel Dusk
-RUN if [ "$(lsb_release -sc)" = "bookworm" ]; then gtk2="libgtk2.0-0 libgconf-2-4"; else gtk2="libgtk2.0-0t64"; fi \
-    && apt-get update \
-    && apt-get -y install libxpm4 libxrender1 $gtk2 libnss3 \
+RUN apt-get update \
+    && apt-get -y install libxpm4 libxrender1 libnss3 \
     && apt-get -y install chromium \
-    && apt-get -y install xvfb xauth gtk2-engines-pixbuf \
+    && apt-get -y install xvfb xauth \
     && apt-get -y install fonts-liberation xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable \
-    && apt-get -y install imagemagick ghostscript x11-apps \
+    && apt-get -y install imagemagick ghostscript \
     && chromium --version
 
 ARG NODE_MAJOR=24
