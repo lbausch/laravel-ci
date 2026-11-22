@@ -4,7 +4,7 @@ stages:
 
 dusk:
   stage: test
-  image: lbausch/laravel-ci:php82
+  image: lbausch/laravel-ci:php86
   before_script:
     # Install dependencies
     - composer install --ansi --no-interaction --no-progress

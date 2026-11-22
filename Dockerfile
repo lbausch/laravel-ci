@@ -83,7 +83,7 @@ COPY <<EOF /etc/apt/sources.list.d/php.list
 deb https://packages.sury.org/php/ ${DEBIAN_VERSION} main
 EOF
 
-ARG PHP_VERSION=8.5
+ARG PHP_VERSION=8.6
 
 # Install PHP
 RUN <<EOF

@@ -10,7 +10,8 @@ A Docker Image for Continuous Integration based on Debian 13 (trixie) or Debian 
   - [GitLab CI/CD](#gitlab-cicd)
 
 ## Features
-+ PHP 5.6 to 8.5 with the extensions bcmath, curl, dom, gd, gmp, imagick, imap, intl, ldap, mbstring, mysql, redis, soap, sqlite, tidy, xdebug and zip
++ PHP 5.6 to 8.6 with the extensions bcmath, curl, dom, gd, gmp, imagick, imap, intl, ldap, mbstring, mysql, redis, soap, sqlite, tidy, xdebug and zip
+  + On PHP 8.6, Xdebug is a pre-release (3.6 alpha) until a stable version is available
 + Composer 2 (2.2 LTS for PHP < 7.2.5)
 + Node.js 24
 + npm 10
@@ -23,7 +24,8 @@ Every PHP version is built on Debian 13 (trixie) and Debian 12 (bookworm). All i
 
 | PHP | Debian 13 (trixie)                    | Debian 12 (bookworm) |
 |-----|---------------------------------------|----------------------|
-| 8.5 | `latest`, `php85`, `php85-trixie`     | `php85-bookworm`     |
+| 8.6 | `latest`, `php86`, `php86-trixie`     | `php86-bookworm`     |
+| 8.5 | `php85`, `php85-trixie`               | `php85-bookworm`     |
 | 8.4 | `php84`, `php84-trixie`               | `php84-bookworm`     |
 | 8.3 | `php83`, `php83-trixie`               | `php83-bookworm`     |
 | 8.2 | `php82`, `php82-trixie`               | `php82-bookworm`     |

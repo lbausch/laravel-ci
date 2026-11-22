@@ -18,7 +18,7 @@ env:
   # Tags without Debian suffix (e.g. php85) point to images built on this Debian release
   LATEST_DEBIAN: 'trixie'
   # The tag latest points to this PHP version built on LATEST_DEBIAN
-  LATEST_PHP: '8.5'
+  LATEST_PHP: '8.6'
 
 jobs:
   push_to_registry:
@@ -27,7 +27,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
+        php: ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5', '8.6']
         debian: ['bookworm', 'trixie']
     steps:
       - name: Check out the repo
